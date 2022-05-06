@@ -17,7 +17,7 @@ class Annonce{
 const data = [
     {
         "id":0,
-        "titre":"je suis un titre",
+        "titre":"test",
         "contenu":"je suis le contenu",
         "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
     },
@@ -29,14 +29,14 @@ const data = [
     },
     {
         "id":2,
-        "titre":"je suis un titre",
+        "titre":"ja",
         "contenu":"je suis le contenu",
         "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
     },
     {
         "id":3,
         "titre":"je suis un titre",
-        "contenu":"je suis le contenu",
+        "contenu":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
     },
     {
@@ -68,7 +68,7 @@ const favoris = [
     },
     {
         "id":2,
-        "titre":"je suis un titre",
+        "titre":"aa",
         "contenu":"je suis le contenu",
         "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
     }
@@ -92,9 +92,15 @@ api.get('/favoris', (req, res) => {
     res.json(favoris)
 })
 
+//Endpoint pour récuperer la liste des favoris
+api.get('/nombreFavoris', (req, res) => {
+    res.json(favoris.length)
+})
+
 //Endpoint pour récupérer une seule annonce
 api.get('/annonce/:id', (req, res) => {
-    res.json(data[req.body.id])
+    console.log(req.params.id)
+    res.json(data[req.params.id])
 })
 
 //Endpoint pour récuperer la liste des favoris

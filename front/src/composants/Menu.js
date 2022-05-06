@@ -1,6 +1,7 @@
 import { Navbar,Container,Nav } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { Component } from "react"
+import { CompteurFavoris } from "./CompteurFavoris"
 
 export class Menu extends Component {
     render() { 
@@ -12,6 +13,7 @@ export class Menu extends Component {
                     <Link className="link" to="/">Accueil</Link>
                     <Link className="link" to="/formulaire">Formulaire</Link>
                     <Link className="link" to="/favoris">Favoris</Link>
+                    <CompteurFavoris/>
                 </Nav>
                 </Container>
             </Navbar>
