@@ -53,6 +53,27 @@ const data = [
     }
 ]
 
+const favoris = [
+    {
+        "id":0,
+        "titre":"je suis un titre",
+        "contenu":"je suis le contenu",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
+    },
+    {
+        "id":1,
+        "titre":"je suis un titre",
+        "contenu":"je suis le contenu",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
+    },
+    {
+        "id":2,
+        "titre":"je suis un titre",
+        "contenu":"je suis le contenu",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
+    }
+]
+
 //Endpoint pour créer une annonce
 api.post('/annonce', (req, res) => {
     const {titre, contenu, url} = req.body
@@ -64,6 +85,11 @@ api.post('/annonce', (req, res) => {
 //Endpoint pour récuperer la liste des annonces
 api.get('/annonces', (req, res) => {
     res.json(data)
+})
+
+//Endpoint pour récuperer la liste des favoris
+api.get('/favoris', (req, res) => {
+    res.json(favoris)
 })
 
 //Endpoint pour récupérer une seule annonce
