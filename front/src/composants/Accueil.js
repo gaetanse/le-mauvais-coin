@@ -11,7 +11,7 @@ export class Accueil extends Component {
     componentDidMount(){
         axios.get('http://localhost:666/annonces')
             .then((response) => {
-                console.log(response.data);
+                //console.log(response.data);
                 this.setState({data:response.data})
             })
             .catch(function (error) {
@@ -23,7 +23,17 @@ export class Accueil extends Component {
         <div>
             accueil
             <br/>
-            reponse recu : {this.state.data}
+            reponse recu :
+            {this.state.data.map((e,i)=>{
+                return(
+                    <div key={i}>
+                        <div>{e.id}</div>
+                        <div>{e.titre}</div>
+                        <div>{e.contenu}</div>
+                        <div>{e.url}</div>
+                    </div>
+                )
+            })}
         </div> 
         )
     }
