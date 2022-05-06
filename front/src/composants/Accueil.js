@@ -1,5 +1,5 @@
 import { Component } from "react"
-const axios = require('axios').default
+const axios = require('axios')
 
 export class Accueil extends Component {
     constructor(props) {
@@ -23,17 +23,21 @@ export class Accueil extends Component {
         <div>
             accueil
             <br/>
-            reponse recu :
-            {this.state.data.map((e,i)=>{
-                return(
-                    <div key={i}>
-                        <div>{e.id}</div>
-                        <div>{e.titre}</div>
-                        <div>{e.contenu}</div>
-                        <div>{e.url}</div>
-                    </div>
-                )
-            })}
+            {
+                this.state.data==0?
+                <p>Aucune annonce</p>
+                :
+                this.state.data.map((e,i)=>{
+                    return(
+                        <div key={i}>
+                            <div>{e.id}</div>
+                            <div>{e.titre}</div>
+                            <div>{e.contenu}</div>
+                            <div>{e.url}</div>
+                        </div>
+                    )
+                })
+            }
         </div> 
         )
     }

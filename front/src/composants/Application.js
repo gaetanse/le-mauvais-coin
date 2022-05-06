@@ -15,10 +15,10 @@ export class Application extends Component {
                     <Container>
                     <Navbar.Brand href="">Le mauvais coin</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Link to="/">Accueil</Link>
-                        <Link to="/formulaire">Formulaire</Link>
-                        <Link to="/details">Détails</Link>
-                        <Link to="/favoris">Favoris</Link>
+                        <Link className="link" to="/">Accueil</Link>
+                        <Link className="link" to="/formulaire">Formulaire</Link>
+                        <Link className="link" to="/details">Détails</Link>
+                        <Link className="link" to="/favoris">Favoris</Link>
                     </Nav>
                     </Container>
                 </Navbar>
