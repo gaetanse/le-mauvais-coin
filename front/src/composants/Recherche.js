@@ -29,8 +29,24 @@ export class Recherche extends Component {
                 console.log(error);
             })
     }
-    ajouterFavori(e,id){
+    ajouterFavori(e,id,element){
         e.preventDefault()
+        
+            if(element.titre!=undefined&&element.contenu!=undefined&&element.url!=undefined){
+        
+                const favori = { id:id,titre:element.titre,contenu:element.contenu,url:element.url };
+        
+                axios.post('http://localhost:666/favori', favori)
+        
+                .then(response => {
+                    console.log(response.data)
+                    if(response.data.message=="ok"){
+                        document.getElementById("button"+id).style.visibility = "hidden"
+                        console.log(document.getElementById("button"+id))
+                    }
+                })
+        
+            }
 
         document.getElementById("button"+id).style.visibility = "hidden"
         console.log(document.getElementById("button"+id))
@@ -80,7 +96,7 @@ export class Recherche extends Component {
                                     <Card.Title>{e.titre}</Card.Title>
                                     <Card.Text>{newContenu}</Card.Text>
                                     <Link to={"/detail/"+e.id}><img className="buttonAnimeBoy" src="/anime-search.png"/></Link>
-                                    <button style={{borderRadius:"100px",border:"white"}} id={"button"+e.id} onClick={(y)=>this.ajouterFavori(y,e.id)}><img className="buttonAnimeBoy" src="/anime-heart.png"/></button>
+                                    <button style={{borderRadius:"100px",border:"white"}} id={"button"+e.id} onClick={(y)=>this.ajouterFavori(y,e.id,e)}><img className="buttonAnimeBoy" src="/anime-heart.png"/></button>
                                 </Card.Body>
                             </Card>
                         </Col>

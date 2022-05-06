@@ -16,7 +16,7 @@ export class Formulaire extends Component {
         e.preventDefault()
         console.log(this.state)
         if(this.state.titre!=undefined&&this.state.contenu!=undefined&&this.state.url!=undefined){
-            const annonce = { title:this.state.titre,contenu:this.state.contenu,url:this.state.url };
+            const annonce = { titre:this.state.titre,contenu:this.state.contenu,url:this.state.url };
             axios.post('http://localhost:666/annonce', annonce)
             .then(response => console.log(response.data))
         }

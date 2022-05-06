@@ -54,24 +54,6 @@ const data = [
 ]
 
 const favoris = [
-    {
-        "id":0,
-        "titre":"je suis un titre",
-        "contenu":"je suis le contenu",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
-    },
-    {
-        "id":1,
-        "titre":"je suis un titre",
-        "contenu":"je suis le contenu",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
-    },
-    {
-        "id":2,
-        "titre":"aa",
-        "contenu":"je suis le contenu",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/IMG_%28business%29.svg/1200px-IMG_%28business%29.svg.png"
-    }
 ]
 
 //Endpoint pour créer une annonce
@@ -80,6 +62,28 @@ api.post('/annonce', (req, res) => {
     const annonce = new Annonce(data.length,titre,contenu,url)
     data.push(annonce)
     res.json({message: "annonce ajouté"})
+})
+
+//Endpoint pour créer une annonce
+api.post('/favori', (req, res) => {
+    const {id, titre, contenu, url} = req.body
+    const array = []
+    console.log(favoris.length)
+    for(let i=0;i<favoris.length;++i){
+        console.log(favoris[i] + " / "+id)
+        if(favoris[i].id==id){
+            array.push(favoris[i])
+        }
+    }
+    if(array.length==0){
+        const favori = new Annonce(data.length,titre,contenu,url)
+        favoris.push(favori)
+        res.json({message: "favori ajouté"})
+    }
+    else{
+        console.log("existe deja")
+        res.json({message: "ok"})
+    }
 })
 
 //Endpoint pour récuperer la liste des annonces
@@ -101,11 +105,6 @@ api.get('/nombreFavoris', (req, res) => {
 api.get('/annonce/:id', (req, res) => {
     console.log(req.params.id)
     res.json(data[req.params.id])
-})
-
-//Endpoint pour récuperer la liste des favoris
-api.get('/favoris', (req, res) => {
-    res.json(dataService.favoris)
 })
 
 api.listen(666,()=>{
