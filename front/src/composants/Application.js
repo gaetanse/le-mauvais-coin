@@ -17,7 +17,6 @@ export class Application extends Component {
                     <Nav className="me-auto">
                         <Link className="link" to="/">Accueil</Link>
                         <Link className="link" to="/formulaire">Formulaire</Link>
-                        <Link className="link" to="/details">Détails</Link>
                         <Link className="link" to="/favoris">Favoris</Link>
                     </Nav>
                     </Container>

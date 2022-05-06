@@ -7,6 +7,13 @@
   margin-left: 5%;
 }
 
+.buttonAnimeBoy{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border: black 5px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

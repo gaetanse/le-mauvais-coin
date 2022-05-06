@@ -1,4 +1,6 @@
 import { Component } from "react"
+import { Button,Card,CardGroup,Row,Col } from "react-bootstrap"
+
 const axios = require('axios')
 
 export class Accueil extends Component {
@@ -21,22 +23,28 @@ export class Accueil extends Component {
     render() { 
         return ( 
         <div>
-            accueil
             <br/>
             {
                 this.state.data==0?
                 <p>Aucune annonce</p>
                 :
-                this.state.data.map((e,i)=>{
+                <Row xs={1} md={3} className="g-4">
+                {this.state.data.map((e,i)=>{
                     return(
-                        <div key={i}>
-                            <div>{e.id}</div>
-                            <div>{e.titre}</div>
-                            <div>{e.contenu}</div>
-                            <div>{e.url}</div>
-                        </div>
+                        <Col key={i}>
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Img className="mx-auto" variant="top" src={e.url} style={{width:150,height:150,marginTop:"10px"}}/>
+                                <Card.Body>
+                                    <Card.Title>{e.titre}</Card.Title>
+                                    <Card.Text>{e.contenu}</Card.Text>
+                                    <img className="buttonAnimeBoy" src="/anime-search.png"/>
+                                    <img className="buttonAnimeBoy" src="/anime-heart.png"/>
+                                </Card.Body>
+                            </Card>
+                        </Col>
                     )
-                })
+                })}
+                </Row>
             }
         </div> 
         )
