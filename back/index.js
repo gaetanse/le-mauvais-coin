@@ -1,6 +1,6 @@
 import express from "express"
 import cors from "cors"
-import data from "./json/data.json"
+import data from "./json/data"
 
 const api = express()
 api.use(express.json())
