@@ -1,5 +1,6 @@
 import express from "express"
 import cors from "cors"
+import data from "./json/data.json"
 
 const api = express()
 api.use(express.json())
@@ -18,7 +19,7 @@ api.post('/annonces', (req, res) => {
 
 //Endpoint pour récuperer la liste des annonces
 api.get('/annonces', (req, res) => {
-    res.json("qzdqzdqz")
+    res.json(data)
 })
 
 //Endpoint pour récupérer une seule annonce
