@@ -5,6 +5,15 @@ const api = express()
 api.use(express.json())
 api.use(cors({origin: "*"}))
 
+class Annonce{
+    constructor(id,titre,contenu,url){
+        this.id = id
+        this.titre = titre
+        this.contenu = contenu
+        this.url = url
+    }
+}
+
 const data = [
     {
         "id":0,
@@ -21,14 +30,11 @@ const data = [
 ]
 
 //Endpoint pour créer une annonce
-api.post('/annonces', (req, res) => {
-    const {id, titre, contenu, url} = req.body
-    if(title != undefined && content != undefined) {
-        dataService.createAnnonce(id, titre, contenu,url)
-        res.json({message: "annonce ajoutée"})
-    }
-    else
-        res.json({message: "Merci d'envoyer un titre, un contenu et une photo"})
+api.post('/annonce', (req, res) => {
+    const {titre, contenu, url} = req.body
+    const annonce = new Annonce(data.length,titre,contenu,url)
+    data.push(annonce)
+    res.json({message: "annonce ajouté"})
 })
 
 //Endpoint pour récuperer la liste des annonces
@@ -38,11 +44,7 @@ api.get('/annonces', (req, res) => {
 
 //Endpoint pour récupérer une seule annonce
 api.get('/annonce/:id', (req, res) => {
-    const annonce = dataService.findAnnonceById(req.params.id)
-    if(annonce != undefined)
-        res.json(annonce)
-    else
-        res.json({message: "aucune annonce avec cet id"})
+    res.json(data[req.body.id])
 })
 
 //Endpoint pour récuperer la liste des favoris
