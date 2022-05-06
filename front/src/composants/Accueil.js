@@ -1,10 +1,13 @@
 import { Component } from "react"
+import { axios } from "axios"
 
 export class Accueil extends Component {
     constructor(props) {
         super(props);
     }
-    state = {  }
+    componentDidMount(){
+        
+    }
     render() { 
         return ( 
         <div>
