@@ -66,23 +66,9 @@ api.post('/annonce', (req, res) => {
 //Endpoint pour créer un favori
 api.post('/favori', (req, res) => {
     const {id, titre, contenu, url} = req.body
-    const array = []
-    for(let i=0;i<favoris.length;++i){
-        console.log(favoris[i].id)
-        console.log(favoris[i].id + " / "+id)
-        if(favoris[i][id]==id){
-            array.push(favoris[i])
-        }
-    }
-    if(array.length==0){
         const favori = new Annonce(data.length,titre,contenu,url)
         favoris.push(favori)
         res.json({message: "favori ajouté"})
-    }
-    else{
-        console.log("existe deja")
-        res.json({message: "ok"})
-    }
 })
 
 //Endpoint pour récuperer la liste des annonces

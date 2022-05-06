@@ -18,7 +18,7 @@ export class Recherche extends Component {
                         arrayAnnonces.push(element)
                     }
                 }
-                if(arrayAnnonces===0){
+                if(arrayAnnonces.length===0){
                     arrayAnnonces = response.data
                 }
                 this.setState({data:arrayAnnonces})
@@ -95,7 +95,7 @@ export class Recherche extends Component {
                                     <Card.Title>{e.titre}</Card.Title>
                                     <Card.Text>{newContenu}</Card.Text>
                                     <Link to={"/detail/"+e.id}><img className="buttonAnimeBoy" src="/anime-search.png" alt=""/></Link>
-                                    <button style={{borderRadius:"100px",border:"white"}} id={"button"+e.id} onClick={(y)=>this.ajouterFavori(y,e.id,e)}><img className="buttonAnimeBoy" src="/anime-heart.png"  alt=""/></button>
+                                    <button style={{borderRadius:"100px",border:"white"}} id={"button"+e.id} onClick={(y)=>this.ajouterFavori(y,e.id,e)}><img className="buttonAnimeBoy" src="/anime-heart.png" alt=""/></button>
                                 </Card.Body>
                             </Card>
                         </Col>
