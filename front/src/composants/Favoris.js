@@ -1,5 +1,5 @@
 import { Component } from "react"
-import { Button,Card,CardGroup,Row,Col } from "react-bootstrap"
+import { Card,Row,Col } from "react-bootstrap"
 
 const axios = require('axios')
 
@@ -38,7 +38,7 @@ export class Favoris extends Component {
                                     <Card.Title>{e.titre}</Card.Title>
                                     <Card.Text>{e.contenu}</Card.Text>
                                 
-                                    <img className="buttonAnimeBoy" src="/anime-heart.png"/>
+                                    <img className="buttonAnimeBoy" src="/anime-heart.png" alt=""/>
                                 </Card.Body>
                             </Card>
                         </Col>

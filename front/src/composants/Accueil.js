@@ -1,6 +1,4 @@
 import { Component } from "react"
-import { Button,Card,CardGroup,Row,Col } from "react-bootstrap"
-import { Link } from "react-router-dom"
 import { Recherche } from "./Recherche";
 
 const axios = require('axios')

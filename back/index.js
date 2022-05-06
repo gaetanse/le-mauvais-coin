@@ -53,8 +53,7 @@ const data = [
     }
 ]
 
-const favoris = [
-]
+const favoris = []
 
 //Endpoint pour créer une annonce
 api.post('/annonce', (req, res) => {
@@ -64,14 +63,14 @@ api.post('/annonce', (req, res) => {
     res.json({message: "annonce ajouté"})
 })
 
-//Endpoint pour créer une annonce
+//Endpoint pour créer un favori
 api.post('/favori', (req, res) => {
     const {id, titre, contenu, url} = req.body
     const array = []
-    console.log(favoris.length)
     for(let i=0;i<favoris.length;++i){
-        console.log(favoris[i] + " / "+id)
-        if(favoris[i].id==id){
+        console.log(favoris[i].id)
+        console.log(favoris[i].id + " / "+id)
+        if(favoris[i][id]==id){
             array.push(favoris[i])
         }
     }
@@ -96,17 +95,17 @@ api.get('/favoris', (req, res) => {
     res.json(favoris)
 })
 
-//Endpoint pour récuperer la liste des favoris
+//Endpoint pour le nombre de favoris
 api.get('/nombreFavoris', (req, res) => {
     res.json(favoris.length)
 })
 
 //Endpoint pour récupérer une seule annonce
 api.get('/annonce/:id', (req, res) => {
-    console.log(req.params.id)
+    //console.log(req.params.id)
     res.json(data[req.params.id])
 })
 
 api.listen(666,()=>{
-    
+  // TODO document why this arrow function is empty
 })

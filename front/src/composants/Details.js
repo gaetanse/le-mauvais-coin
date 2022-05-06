@@ -1,5 +1,5 @@
-import { Component,useState } from "react"
-import { useParams,Link } from "react-router-dom"
+import { Component } from "react"
+import { Link } from "react-router-dom"
 import { Card } from "react-bootstrap"
 import { withParams } from "./with-params"
 const axios = require('axios')
@@ -29,14 +29,14 @@ class Details extends Component{
         return ( 
             <div>
                 {
-                    this.state.data==undefined?<p>Annonce pas chargé</p>
+                    this.state.data===undefined?<p>Annonce pas chargé</p>
                     :
                     <Card style={{ width: '18rem' }}>
                         <Card.Img className="mx-auto" variant="top" src={this.state.data.url} style={{width:150,height:150,marginTop:"10px"}}/>
                         <Card.Body>
                             <Card.Title>{this.state.data.titre}</Card.Title>
                             <Card.Text>{this.state.data.contenu}</Card.Text>
-                            <Link to={"/favoris/"+this.state.data.id}><img className="buttonAnimeBoy" src="/anime-heart.png"/></Link>
+                            <Link to={"/favoris/"+this.state.data.id}><img className="buttonAnimeBoy" src="/anime-heart.png" alt=""/></Link>
                         </Card.Body>
                     </Card>
                 }
