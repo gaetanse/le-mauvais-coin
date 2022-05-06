@@ -3,7 +3,7 @@ import cors from "cors"
 
 const api = express()
 api.use(express.json())
-api.use(cors())
+api.use(cors({origin: "*"}))
 
 //Endpoint pour créer une annonce
 api.post('/annonces', (req, res) => {
@@ -18,7 +18,7 @@ api.post('/annonces', (req, res) => {
 
 //Endpoint pour récuperer la liste des annonces
 api.get('/annonces', (req, res) => {
-    res.json(dataService.annonces)
+    res.json("qzdqzdqz")
 })
 
 //Endpoint pour récupérer une seule annonce
